@@ -1,1 +1,20 @@
+.card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    z-index: 1;
+}
 
+.btn-perso {
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar {
+    
+    background-color: cadetblue!important;
+    
+}

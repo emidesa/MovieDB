@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
     return <>
     
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar  expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand>
             <Link to={'/'}>Home</Link>
@@ -17,6 +17,7 @@ const NavBar = () => {
           <Nav className="me-auto"> 
             <Nav.Link>
                 <Link to={'/genre'}>Genres</Link>
+
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import Genrespage from './Pages/GenresPage';
 import  Navbar  from './Components/NavBar';
+import MovieDetailsPage from './Pages/MovieDetailsPage';
 
 function App() {
  
@@ -18,13 +19,11 @@ function App() {
 <Routes>
   <Route path='/' element={<HomePage/>}/>
   <Route path='/genre' element={<Genrespage/>}/>
-
-   
+  <Route path='/movie/:id' element={<MovieDetailsPage/>}/>
 </Routes>
 
 </BrowserRouter>
-
-    </>
+</>
   
 }
 

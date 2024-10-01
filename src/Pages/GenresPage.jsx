@@ -1,7 +1,36 @@
+import GenreServices from "../Services/GenreServices";
+import { useState , useEffect} from "react";
+import { Container } from "react-bootstrap";
+import Button from'react-bootstrap/Button';
+
 const Genrespage = () => {
-    return <>
+
+    const[genres,setGenres] = useState([]);
+ 
+
+    const fetchgenres = async () => {
+        try {
+            const response = await GenreServices.getALLGenres();
+            setGenres(response.data.genres);
+        } catch (error) {
+          console.log(error);
+        }
+    }
+
+    useEffect(() => {
+       fetchgenres()
+    }, [])
+
+    return <Container className="d-flex flex-column align-items-center">
+  
     <h1>Genres</h1>
-    </>;
+     <div className="d-flex justify-content-center flex-wrap gap-3"> 
+      {genres.map((genre) => {
+        return <Button variant = "primary" key={genre.id}>{genre.name}</Button>
+    })}   
+    </div>
+    </Container>
+    
 }
  
 export default Genrespage;

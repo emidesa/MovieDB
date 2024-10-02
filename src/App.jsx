@@ -10,6 +10,8 @@ import Genrespage from './Pages/GenresPage';
 import  Navbar  from './Components/NavBar';
 import MovieDetailsPage from './Pages/MovieDetailsPage';
 import GenreDetails from './Pages/genreDetails';
+import PeoplePage from './Pages/PeoplePage';
+import PeopleDetailsPage from './Pages/PeopleDetailsPage';
 
 function App() {
  
@@ -20,8 +22,10 @@ function App() {
 <Routes>
   <Route path='/' element={<HomePage/>}/>
   <Route path='/genre' element={<Genrespage/>}/>
+  <Route path='/people' element={<PeoplePage/>}/>
   <Route path='/movie/:id' element={<MovieDetailsPage/>}/>
   <Route path='/genre/:id' element={<GenreDetails/>}/>
+  <Route path='/people/:id' element={<PeopleDetailsPage/>}/>
 </Routes>
 
 </BrowserRouter>

@@ -1,8 +1,36 @@
-.card:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-    z-index: 1;
+.filmographie {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-top: 5vh;
+    font-size: small;
 }
+
+
+.resume {
+    display: flex;
+    margin-top: 5vh;
+    flex-direction: column;
+    text-align: center;
+    color: black;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+
+
+}
+
+
+.listGenre {
+    display: flex;
+    align-items: justify; 
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 12vh;
+}
+
 
 .btn-perso {
     background-color: cadetblue;

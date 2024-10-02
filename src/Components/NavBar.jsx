@@ -17,7 +17,10 @@ const NavBar = () => {
           <Nav className="me-auto"> 
             <Nav.Link>
                 <Link to={'/genre'}>Genres</Link>
-
+            
+            </Nav.Link>
+            <Nav.Link>
+                <Link to={'/people'}>People</Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

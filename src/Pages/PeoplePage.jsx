@@ -1,45 +1,38 @@
-
 import { useEffect, useState } from "react";
-import MoviesService from "../Services/MoviesService";
-import MovieCard from "../Components/MovieCard";
-import { Container } from "react-bootstrap";
-import Pagination from "react-bootstrap/Pagination";
+import PeopleServices from "../Services/PeopleServices";
+import PeopleCard from "../Components/PeopleCard";
+import { Container, Pagination } from "react-bootstrap";
 
 
-const HomePage = () => {
-    const[movies,setMovies] = useState([]);
+const PeoplePage = () => {
+    const [people, setPeople] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [maxPage, setMaxPage] = useState(500);
-
-    const fetchMovies = async () => {
+    const [maxPage, setMaxPage] = useState(500); // Nombre maximum de pages pour la pagination
+    const fetchALLPeople = async () => {
         try {
-            const response = await MoviesService.getALLMovies(currentPage);
-            setMaxPage(response.data.total_pages);
-            setTimeout(() => {
-              window.scrollTo({
-                  top: 0,
-                  left: 0,
-                  behavior: "smooth",
-                });
-          },50)
-            setMovies(response.data.results); 
+            const response = await PeopleServices.getALLPeople(currentPage);
+            console.log(response.data.results);
+            setPeople(response.data.results);
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
-    }
-
+    };
+    
     useEffect(() => {
-       fetchMovies()
-    }, [currentPage])
-   
-    return <Container className="d-flex flex-column align-items-center">
-    <h1>Page accueil</h1>
-    <div className="d-flex justify-content-center flex-wrap gap-5">
-      {movies.map((movie) => {
-        return <MovieCard movieCard={movie} key={movie.id}></MovieCard>
-    })}   
-    </div>
-    <Pagination className="mt-5">
+        fetchALLPeople();
+    }, [currentPage]);
+
+    return  <Container className="d-flex flex-column align-items-center">
+            <h1>People</h1>
+            <div className="listGenre">
+                {people.map((people) => (
+                    <div key={people.id} style={{ width: '23%' }}>
+                        <PeopleCard peopleCard={people} />
+                    </div>
+                ))}
+            </div>
+
+            <Pagination className="mt-5">
         {currentPage > 1 && 
         <>
         <Pagination.First onClick={() => {setCurrentPage(1)}} />
@@ -73,8 +66,7 @@ const HomePage = () => {
       </>}
      
     </Pagination>
-</Container>
-    
-}
- 
-export default HomePage;
+        </Container>
+};
+
+export default PeoplePage;

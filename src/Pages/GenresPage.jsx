@@ -9,8 +9,8 @@ const Genrespage = () => {
     const[genres,setGenres] = useState([]);
     const navigate = useNavigate();
 
-   const navigateTo = (id) => {
-    navigate("/genre/" + id);
+   const navigateTo = (genre) => {
+    navigate("/genre/"+genre.id, {state : {"genre" : genre}});
    }
  
 
@@ -34,7 +34,7 @@ const Genrespage = () => {
       {genres.map((genre) => {
         
         return <Button  variant = "primary" key={genre.id} 
-        onClick={() => {navigateTo(genre.id)}}>{genre.name}</Button>
+        onClick={() => {navigateTo(genre)}}>{genre.name}</Button>
     })}   
     </div>
     </Container>

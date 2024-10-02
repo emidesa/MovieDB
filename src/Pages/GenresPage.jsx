@@ -2,10 +2,16 @@ import GenreServices from "../Services/GenreServices";
 import { useState , useEffect} from "react";
 import { Container } from "react-bootstrap";
 import Button from'react-bootstrap/Button';
+import { Link, useNavigate } from'react-router-dom';
 
 const Genrespage = () => {
 
     const[genres,setGenres] = useState([]);
+    const navigate = useNavigate();
+
+   const navigateTo = (id) => {
+    navigate("/genre/" + id);
+   }
  
 
     const fetchgenres = async () => {
@@ -26,7 +32,9 @@ const Genrespage = () => {
     <h1>Genres</h1>
      <div className="d-flex justify-content-center flex-wrap gap-3"> 
       {genres.map((genre) => {
-        return <Button variant = "primary" key={genre.id}>{genre.name}</Button>
+        
+        return <Button  variant = "primary" key={genre.id} 
+        onClick={() => {navigateTo(genre.id)}}>{genre.name}</Button>
     })}   
     </div>
     </Container>

@@ -9,7 +9,7 @@ import MovieCard from "../Components/MovieCard";
 const PeopleDetailsPage = () => {
 
     const {id} = useParams();
-    const [people, setPeople] = useState([]);
+    const [people, setPeople] = useState({});
     const [movies, setMovies] = useState([]);
     const [actorsmovie, setActorsMovie] = useState([]);
 

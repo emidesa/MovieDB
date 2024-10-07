@@ -30,6 +30,7 @@ const PeopleDetailsPage = () => {
         const response = await PeopleServices.getALLMovieByPeople(id, currentPage);
         setActorsMovie(response.data.results);
         setMaxPage (response.data.total_pages);
+        
        
     } catch (error) {
         console.log(error);
